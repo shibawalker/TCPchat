@@ -3,15 +3,16 @@ import socket
 import sys
 #Create a tcpip socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-server_address = ('127.0.0.1', 8080)
+host = socket.gethostname()
+port = 8080
+server_address = (host, port)
 print('starting up on  {} port {}'.format(*server_address))
 
 sock.connect(server_address)
-
+#連線成功
 try:
     #send data
-    message = b'hello!'
+    message = b'hola'
     print('sending{!r}'.format(message.decode("utf-8")))
     sock.sendall(message)
 
