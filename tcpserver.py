@@ -1,13 +1,12 @@
 #socket_echo_server.py
 import socket
 import sys
-#Create a tcpop socket
+#Create a tcpip socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server_address = ('192.168.217.78', 10000)
+server_address = ('127.0.0.1', 8080)
 print('starting up on  {} port {}'.format(*server_address))
 sock.bind(server_address)
-
 sock.listen(1)
 
 while True:
@@ -17,7 +16,7 @@ while True:
         print('connection from',client_address)
 
         while True:
-            data = connection.recv(16)
+            data = connection.recv(128)
             print('received {!r}'.format(data.decode("utf-8")))
             if data:
                 print('sending data to the client')
