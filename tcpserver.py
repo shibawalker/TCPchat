@@ -3,7 +3,7 @@ import socket
 import sys
 #Create a tcpip socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = socket.gethostname()
+host = '192.168.103.78'
 port = 8080
 server_address = (host, port)
 sock.bind(server_address)
@@ -15,7 +15,8 @@ while True:
     connection, client_address = sock.accept()
     try:
         print('connection from',client_address)
-
+        data = b'Login:'
+        
         while True:
             data = connection.recv(128)
             print('received {!r}'.format(data.decode("utf-8")))
