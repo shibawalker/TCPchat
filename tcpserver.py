@@ -3,7 +3,7 @@ import socket
 import sys
 #Create a tcpip socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = '192.168.103.78'
+host = '127.0.0.1'
 port = 8080
 server_address = (host, port)
 sock.bind(server_address)
@@ -29,3 +29,5 @@ while True:
                 break
     finally:
         connection.close()
+   
+   
